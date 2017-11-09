@@ -1,9 +1,10 @@
 pipeline {
   agent any
   stages {
-    stage('Example') {
+    stage('Buzz Build') {
       steps {
-        echo 'Hello World!'
+        archiveArtifacts(artifacts: 'target/*.jar', fingerprint: true)
+        sh 'echo You should not see me!'
       }
     }
   }
