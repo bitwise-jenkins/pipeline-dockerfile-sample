@@ -1,19 +1,12 @@
 pipeline {
   agent any
   stages {
-    stage('Example') {
-      steps {
-        echo 'Hello World!'
+    stage('Deploy release') {
+      when {
+        branch 'master'
       }
-    }
-    stage('Example2') {
       steps {
-        input 'waiting'
-      }
-    }
-    stage('Example3') {
-      steps {
-        sh 'sleep 60'
+        echo 'Deploy to production'
       }
     }
   }
